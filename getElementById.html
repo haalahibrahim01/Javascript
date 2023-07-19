@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- internal css -->
+    <style>
+        #p1 {background-color:lightgreen;}
+    </style>
+     <!-- the above style tag is internal css -->
+     <!-- inline css has the most priority -->
+</head>
+
+<body>
+
+     <!-- get element by id -->
+    <p id="p1" style="color:red;">This is one</p>
+    <!-- above line is inline css -->
+    <p id="p2">This is two</p>
+    <p id="p3">This is three</p>
+      <!-- get element by id -->
+
+    <!-- get element by class -->
+    <h1 class="heading">Heading 1</h1>
+    <h1 class="heading">Heading 2</h1>
+    <h1 class="heading">Heading 3</h1>
+     <!-- get element by class -->
+
+    <!-- Get element by tag -->
+    <h3>Head 1</h3>
+    <h3>Head 2</h3>
+    <h3>Head 3</h3>
+     <!-- Get element by tag -->
+
+     <!-- Change html content using id -->
+     <p id="demo">This is the original content.</p>
+     <!-- Change html content using id -->
+
+    <script>
+        document.getElementById("p2").style.color = "orange";
+        document.getElementsByClassName('heading')[0].style.color='blue';
+        document.getElementsByTagName("h3")[1].style.color="purple";
+        document.getElementById("demo").innerHTML="This is the changed content";
+        document.getElementsByTagName("body")[0].innerHTML="<strong>The body has changed</strong>";
+        // document.getElementsByTagName("body")[0].innerHTML=" ";
+        // even though there is only one body tag in the entire document, we need to set an index.
+        // multiple elements have the same class name, so index has to be used by[index number].
+        // JS is case sensitive.
+    </script>
+</body>
+</html>
