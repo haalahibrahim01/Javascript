@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- internal css -->
+    <style>
+        #p1 {background-color:lightgreen;}
+    </style>
+     <!-- the above style tag is internal css -->
+     <!-- inline css has the most priority -->
+</head>
+
+<body>
+
+     <!-- get element by id -->
+    <p id="p1" style="color:red;">This is one</p>
+    <!-- above line is inline css -->
+    <p id="p2">This is two</p>
+    <p id="p3">This is three</p>
+      <!-- get element by id -->
+
+    <!-- get element by class -->
+    <h1 class="heading">Heading 1</h1>
+    <h1 class="heading">Heading 2</h1>
+    <h1 class="heading">Heading 3</h1>
+     <!-- get element by class -->
+
+    <!-- Get element by tag -->
+    <h3>Head 1</h3>
+    <h3>Head 2</h3>
+    <h3>Head 3</h3>
+     <!-- Get element by tag -->
+
+     <!-- Change html content using id -->
+     <p id="demo">This is the original content.</p>
+     <!-- Change html content using id -->
+
+     <!-- Styling using JS -->
+     <div id="div1">This ia a div</div>
+     <!-- Styling using JS -->
+     
+     <!-- learn variable -->
+     <p id="para">This is a paragraph stored in a variable.</p>
+     <!-- learn variable -->
+
+     <!-- learn concatenation -->
+    <p id="cars">Concatenation</p>
+     <!-- learn concatenation -->
+
+     <!-- array -->
+    <p id="arr1">This ia a para to be overwritten by the contents of an array</p>
+    <p id="arr2">This ia a para to be overwritten by the contents of an array</p>
+    <p id="arr3">This ia a para to be overwritten by the contents of an array</p>
+    <p id="arr4">This ia a para to be overwritten by the contents of an array</p>
+    <p id="arr5">This ia a para to be overwritten by the contents of an array</p>
+     <!-- array -->
+
+     <!-- sort and push in an array -->
+     <p id="s&p1">This is a para used to sort and push values in an array.</p>
+     <!-- sort and push in an array -->
+
+    <script>
+        
+        
+        document.getElementById("p2").style.color = "orange";
+        document.getElementsByClassName('heading')[0].style.color='blue';
+        document.getElementsByTagName("h3")[1].style.color="purple";
+        document.getElementById("demo").innerHTML="This is the changed content";
+        document.getElementById("div1").style.height = "200px";
+        document.getElementById("div1").style.border = "1px solid black";
+        document.getElementById("div1").style.width = "200px";
+        document.getElementById("div1").style.backgroundColor = "orange";
+        // border radius should be half of existing dimension
+        document.getElementById("div1").style.borderRadius = "100px";
+        document.getElementById("div1").style.textAlign = "center";
+        // line height is required for vertical align. if line height is given as 100px then the text
+        // is aligned in the middle of 100px height
+        document.getElementById("div1").style.lineHeight = "200px";
+        document.getElementById("div1").style.verticalAlign = "middle";
+        // document.getElementsByTagName("body")[0].innerHTML="<strong>The body has changed</strong>";
+        // document.getElementsByTagName("body")[0].innerHTML=" ";
+        // even though there is only one body tag in the entire document, we need to set an index.
+
+        var x="hello";
+        var y=" world";
+        var para= document.getElementById("para");
+        // not this variable can be called to style the <p> contents rather 
+         // than write it over several times.
+        // para.innerHTML="Good Morning";
+        para.innerHTML=x+y; 
+        // para.style.display="none";
+        para.style.color="red";
+        // variables can be overwritten
+        var name="jane";
+        name="doe";
+        alert(name);
+        // multiple elements have the same class name, so index has to be used by[index number].
+        // concatenation
+        var car1="Hyundai";
+        var car2="Honda"
+        var para2=document.getElementById("cars");
+        para2.innerHTML=car1+" "+car2;
+        para2.innerHTML=car1+" Mercedes "+car2+" Ferrari";
+        // concatenation
+
+        // arrays
+        var cars=['Toyota', 'Cooper', 'Peugeot', 'Chevrolet'];
+        // I have already created an id named cars earlier. I infered it doesn't cause an issue
+        document.getElementById("arr1").innerHTML=cars[0];
+        document.getElementById("arr2").innerHTML=cars[1];
+        document.getElementById("arr3").innerHTML=cars[2];
+        document.getElementById("arr4").innerHTML=cars[3];
+        // uppend a new value to the existing array.
+        cars[4]= "Mercedes";
+        document.getElementById("arr5").innerHTML=cars[4];
+
+        // But for the above method we need to know the index values of the array. Another 
+        // means to do so is given below.
+        var colours=[];
+        colours[0]="Red";
+        colours[1]="Yellow";
+        colours[2]="Orange";
+        colours[3]="Blue";
+        document.getElementById("arr4").innerHTML=colours[2];
+        // uppend a new value to the existing array.
+        // arrays
+        // push element at the end of an array
+         cars.push("Maserati");
+        //sort elements in an arry
+        document.getElementById("s&p1").innerHTML=cars.sort();
+        //by doing the above line of code you can also see the 5th element uppended into the array.
+
+        // JS is case sensitive.
+    </script>
+</body>
+</html>
