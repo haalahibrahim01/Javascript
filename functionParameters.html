@@ -1,0 +1,68 @@
+<!-- function parameters and arguments -->
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Function Parameters and Arguments</title>
+
+        <!-- Placing style tag inside a particular tag allows you to apply styles 
+        specifically to elements within that part of the document.It can also be within body. -->
+        <style>
+            #div1{
+                background-color: green;
+                width: 100px;
+                height:100px;
+            }
+            /* when referencing div by their id use#.if the tag was referenced just use div */
+            #div2{
+                background-color: rgb(117, 128, 0);
+                width: 100px;
+                height:100px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Function Parameters and Arguments</h1>
+      
+       <button id= "btn" onclick="firstFunction()">Click Here</button>
+       <button id= "btn" ondblclick="firstFunction()">Double Click Here</button>
+
+       <br><br>
+       <div id="div1" onmouseover="makeBig()" onmouseout="makeSmall()"></div>
+       <br>
+       <p id="demo">Demo</p>
+       <div id="div2" onclick="changeColor('red')"></div>
+       <!-- Interchanging the double and single quotes here doesn't make a difference. -->
+       <br>
+       <button onclick="changeColor('blue')">Blue</button>
+       <button onclick="changeColor('yellow')">Yellow</button>
+
+        <script>
+
+        function firstFunction(){
+        alert("First function is called");
+        }
+
+        function makeBig(){
+            document.getElementById("div1").style.height="200px";
+            document.getElementById("div1").style.width="200px";
+        }
+
+        function makeSmall(){
+            document.getElementById("div1").style.height="100px";
+            document.getElementById("div1").style.width="100px";
+        }
+
+        function changeColor(color){
+            // The variable color is called a parameter and the value passed to the parameter when function
+            // is called the argument.
+            document.getElementById("div2").style.backgroundColor= color;
+            // No double quotes for color. Else it'll be deemed as a string.
+        }
+        // Color is any undefined and empty variable.
+
+        </script>
+    </body>
+
+</html>

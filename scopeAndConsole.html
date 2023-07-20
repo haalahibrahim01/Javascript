@@ -1,0 +1,44 @@
+<!-- example to illustrate the global scope in JavaScript -->
+<!-- inspect the page and check console to view. -->
+<!-- The console is an object in JavaScript that provides a way to 
+interact with the browser's developer console. 
+is helpful for understanding how your code is working, identifying bugs, 
+and tracking the flow of data in your application. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Global Scope Example</title>
+</head>
+<body>
+    <h1>Global Scope Example</h1>
+
+    <script>
+        // Console
+        const name = "John";
+        const age = 30;
+         console.log("Name:" +name);
+         console.log("Age:" +age);
+
+         
+        // Global scope
+        const globalVar = "I am a global variable";
+
+        function globalFunction() {
+            return "I am a global function";
+        }
+
+        function foo() {
+            const localVar = "I am a local variable";
+            console.log(globalVar); // Accessing globalVar from the local scope of the function foo()
+            console.log(localVar);  // Accessing localVar from within the function foo()
+        }
+
+        foo();
+
+        console.log(globalVar); // Accessing globalVar from the global scope
+        // console.log(localVar); // This will cause an error because localVar is not defined in the global scope
+    </script>
+
+</body>
+</html>

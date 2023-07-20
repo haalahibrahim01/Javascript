@@ -1,0 +1,96 @@
+<!-- onmouseover and onmouseout events -->
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Onmouseover and Onmouseout Example</title>
+        <!-- Placing style tag inside a particular tag allows you to apply styles 
+        specifically to elements within that part of the document.It can also be within body. -->
+        <style>
+            #div1{
+                background-color: green;
+                width: 100px;
+                height:100px;
+            }
+            /* when referencing div by their id use#.if the tag was referenced just use div */
+            #div2{
+                background-color: rgb(117, 128, 0);
+                width: 100px;
+                height:1000px;
+                overflow-y: scroll;
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Onmouseover, Onmouseout, Onerror and Onscroll Events</h1>
+      
+       <button id= "btn" onclick="firstFunction()">Click Here</button>
+       <button id= "btn" ondblclick="firstFunction()">Double Click Here</button>
+
+       <br><br>
+       <img src="tiger.jpg" onerror="imageError()">
+       <br>
+       <div id="div1" onmouseover="makeBig()" onmouseout="makeSmall()"></div>
+       <br>
+       <p id="demo">Demo</p>
+       <br>
+       <div id="div2" onscroll="scrollFun()"> Hello World! Hello World!Hello World!Hello World!Hello World!Hello 
+        World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+        World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+        World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+        World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+        World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello
+         World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello 
+          World!</div>
+          <!-- The onscroll function can be put inside the body tag as well. In that case the 
+        the value of x is uppended as the entire document is scrolled up and down. -->
+    
+
+     <!-- save an image called tiger in Javascript folder. -->
+
+        <script>
+
+        function firstFunction(){
+        alert("First function is called");
+        }
+
+        function imageError(){
+            alert("Failed to load Image.");
+        }
+
+        function makeBig(){
+            document.getElementById("div1").style.height="200px";
+            document.getElementById("div1").style.width="200px";
+        }
+
+        function makeSmall(){
+            document.getElementById("div1").style.height="100px";
+            document.getElementById("div1").style.width="100px";
+        }
+
+        // To count the number of times scrolled, a variable is declared outside the function.
+        var x = 0; 
+        function scrollFun(){
+            // If x is declared inside the function, every time the function is called, x is 0.
+            // Then x becomes 1 and then the statement is printed here. When scrolled again, the function is 
+            // called again and x becomes 0 again and then 1.
+
+            x+=1;
+            document.getElementById("demo").innerHTML="You have scrolled " +x+ " times.";
+            // document.getElementById("demo").innerHTML+="You have scrolled";
+            // the + sign added uppends the statement(add new string to existing string) many times as the page is scrolled. Demo doesn't
+            // get overwritten. Why?
+        }
+        
+        </script>
+    </body>
+
+</html>

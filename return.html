@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Return Example</title>
+    </head>
+    <body>
+        <h1>Return Example</h1>
+        <p id="demo">Demo</p>
+
+    <script>
+     document.getElementById("demo").innerHTML=sum(3,4);
+     document.getElementById("demo").innerHTML=yearsToRetire(25);
+    //  The webpage will show Demo replaced by the 2nd command statement 
+    // due to order of execution.
+     function sum(x,y){
+          var total= x+y;
+          return total;
+     }
+
+     function yearsToRetire(age){
+        var yearsLeft= 65-age;
+        return "You have " +yearsLeft+ " years to retire."; 
+     }
+
+    </script>
+    </body>
+
+</html>

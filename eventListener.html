@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>EventListener Example</title>
+    </head>
+    <body>
+        <h1>Example Page</h1>
+
+        <button id="myButton">Click Me</button>
+
+    
+        <script>
+           
+            // Get a reference to the button element
+            const button = document.getElementById("myButton");
+            // The above line is used to store a reference to the button element with the ID "myButton" in 
+            // the variable button. The const keyword 
+            // is used to define variables whose values should not be re-assigned or changed 
+            // once they are initialized. Essentially, const creates read-only variables.
+    
+            // Define the callback function to be executed when the button is clicked
+            function handleClick() {
+                alert("Button clicked!");
+            }
+
+             // Add an event listener to the button, specifying the event ("click") and the callback function (handleClick)
+             button.addEventListener("click", handleClick);
+            //  click is a predefined event.
+
+        </script>
+
+    </body>
+
+</html>

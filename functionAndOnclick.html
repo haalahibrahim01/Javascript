@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>Function and Onclick Example</title>
+    </head>
+    <body>
+        <h1>Example Page</h1>
+       <button id= "btn">Click Here</button>
+
+       <!-- firstFunction();  This gets executed in execution phase but is out of the containing scope 
+    of the script tag. So function is not called as creation phase only hoists the functions 
+    to the top of the script tag( within script)-->
+
+        <script>
+    //  firstFunction(); 
+    //  This works even though it is given before the function declaration because -
+    //  When JavaScript code is executed, it goes through two main phases: 
+    //  the creation phase and the execution phase.
+    //  1. Creation Phase: In this phase, JavaScript sets up the environment, including 
+    // creating variable objects, function declarations, and assigning memory space to variables 
+    // and functions. During this phase, all function declarations are hoisted to the top of their
+    //  containing scope. This means that JavaScript "hoists" (moves) the function declarations to 
+    //  the top of the code, making them accessible throughout the entire scope.
+    //  2. Execution Phase: In this phase, the code is executed line by line, from top to bottom.
+
+    document.getElementById("btn").onclick=firstFunction;
+    // if paranthesis is used after function name in this way of implementing onclick, The browser
+    // doesn't wait for onclick to be called, rather executes the function before that. 
+    //  calling the function only works inside the script itself
+     function firstFunction(){
+        alert("First function is called");
+     }
+        </script>
+    </body>
+
+</html>
