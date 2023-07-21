@@ -1,0 +1,115 @@
+<!-- program to learn the use of let and var with respect to hoisting and function/global scoping -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+
+<h1>Shopping Cart</h1>
+
+<div id="cart">
+  <h2>Items in Cart</h2>
+  <ul>
+    <li>Item 1 - $25</li>
+    <li>Item 2 - $30</li>
+    <li>Item 3 - $15</li>
+  </ul>
+</div>
+
+<div id="total">
+  <h2>Total Price</h2>
+  <p id="subtotal">Subtotal: </p>
+  <p id="discount">Discount: </p>
+  <p id="finalTotal">Final Total: </p>
+</div>
+
+<script>
+    function calculateTotal() {
+        // Item prices
+        let item1Price = 25;
+        let item2Price = 30;
+        let item3Price = 15;
+
+        // Calculate subtotal
+        let subtotal = item1Price + item2Price + item3Price;
+        document.getElementById("subtotal").innerText = "Subtotal: $" + subtotal;
+
+        // Apply discount based on total amount
+        let discountPercentage;
+        if (subtotal >= 100) {
+            discountPercentage = 0.2; // 20% discount for purchases of $100 or more
+        } else if (subtotal >= 50) {
+            discountPercentage = 0.1; // 10% discount for purchases of $50 or more
+        } else {
+            discountPercentage = 0; // No discount for purchases below $50
+        }
+
+        let discountAmount = subtotal * discountPercentage;
+        document.getElementById("discount").innerText = "Discount: $" + discountAmount;
+
+        // Calculate final total after applying the discount
+        let finalTotal = subtotal - discountAmount;
+        document.getElementById("finalTotal").innerText = "Final Total: $" + finalTotal;
+    }
+
+    // Call the calculateTotal function when the page loads
+    calculateTotal();
+</script>
+
+</body>
+</html>
+
+
+<!-- the below two segments show the issue with using var/let -->
+<!-- using var -->
+function exampleVar() {
+    if (true) {
+      var x = 10;
+    }
+  
+    console.log(x); // Output: 10 (var is function-scoped and hoisted)
+  }
+
+  exampleVar();
+  <!-- The var x appears inside if block but it is hoisted to the top of the function block (before if)
+  .hence console.log(x) will be executed but the same is not true for let. it is block-level scope.-->
+  
+  
+
+
+<!-- using let -->
+  function exampleLet() {
+    if (true) {
+      let y = 20;
+    }
+  
+    // console.log(y); // Error: y is not defined (let is block-scoped)
+  }
+  
+  exampleLet();
+  
+  <!-- let and scope are block-scoped -->
+
+
+  <!-- another example -->
+
+  function exampleFunctionScoping() {
+    var x = 10; // Declared using var (function-scoped)
+    let y = 20; // Declared using let (also function-scoped) as it is at the top of the function
+  
+    if (true) {
+      var innerVar = 30; // Function-scoped (accessible within the entire function)
+      let innerLet = 40; // Block-scoped (accessible within the if block)
+    }
+  
+    console.log(innerVar); // Output: 30
+  
+    
+    // console.log(innerLet);   // Error: innerLet is not defined    // Variables declared using let are NOT accessible outside the if block
+  
+    console.log(x); // Output: 10
+    console.log(y); // Output: 20
+  }
+  
+  exampleFunctionScoping();

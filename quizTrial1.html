@@ -1,0 +1,106 @@
+<!-- code to check answers and display score. Same functionality as in quizTrial.html. Additions 
+    are the use of loop to iterate through the correct options and check.
+    This file does not include ticks/crosses. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <link  rel="stylesheet" href="quizTrial.css">
+    </head>
+    <body>
+
+  <div class="two-blocks-container">
+    
+    <div class="two-blocks">
+
+        <div class="allTextVisibleResponsive">
+       
+      <h4>1.What does HTML stand for?</h4>
+      <ul>
+      <li><input type="radio" name="qn1" id="op1"/> Hypertext Markup Language</li>
+      <li> <input type="radio" name="qn1" id="op2"/> wrong</li>
+      <li> <input type="radio" name="qn1" id="op3"/> wrong </li>
+      <li><input type="radio" name="qn1" id="op4"/> wrong</li>
+    </ul>
+    
+
+    <h4>2.What does CSS stand for?</h4>
+    <ul>
+    <li><input type="radio" name="qn2" id="op5"/>wrong</li>
+    <li> <input type="radio" name="qn2" id="op6"/> Cascading Style Sheets</li>
+    <li> <input type="radio" name="qn2" id="op7"/> wrong </li>
+    <li><input type="radio" name="qn2" id="op8"/> wrong</li>
+  </ul>
+
+  <h4>3.Which display property does span elements have by default?</h4>
+  <ul>
+  <li><input type="radio" name="qn3" id="op9"/> wrong</li>
+  <li> <input type="radio" name="qn3" id="op10"/> wrong</li>
+  <li> <input type="radio" name="qn3" id="op11"/> inline </li>
+  <li><input type="radio" name="qn3" id="op12"/> wrong</li>
+</ul>
+    </div>
+<div class="checkBlock1">
+    <div class="firstTick" style=""></div>
+    <div class="secondTick" style=""></div>
+    <div class="thirdTick" style=""></div>
+</div> 
+  
+    </div>
+    
+
+    <div class="two-blocks">
+
+        <div class="allTextVisibleResponsive">
+
+        <h4>4.What does HTML stand for?</h4>
+        <ul>
+            <li><input type="radio" name="qn5" id="op13"/> wrong</li>
+            <li> <input type="radio" name="qn5" id="op14"/> wrong</li>
+            <li> <input type="radio" name="qn5" id="op15"/> wrong </li>
+            <li><input type="radio" name="qn5" id="op16"/> Hypertext Markup Language</li>
+            </ul>
+       <button id="submit" onclick="checkResult()">Submit</button>  
+       <p id="score"></p>          
+       <p id="percentage"></p>
+        </div>
+
+       <div class="checkBlock2">
+            <div class="fourthTick" style=""></div>
+            <div></div>
+            <div></div>
+       </div> 
+    </div>
+   
+</div>
+
+<script>
+        function checkResult() {
+            let sum = 0;
+            const correctAnswerIds = ["op1", "op6", "op11", "op16"];
+    
+            for (const answerId of correctAnswerIds) {
+                if (document.getElementById(answerId).checked) {
+                    sum++;
+                }
+            }
+    
+            document.getElementById("score").innerHTML = "Score : " + sum;
+        }
+
+</script> 
+    </body>
+</html>
+
+    <!-- answerId is not a new variable created explicitly; it is a loop variable 
+  used in the for-loop. It represents each element (ID) in the correctAnswerIds array 
+   during each iteration of the loop.
+   The for-loop iterates through each correct answer ID in the correctAnswerIds array. 
+   During each iteration, the loop variable answerId takes on the value of the current element in 
+   the array (i.e., the current correct answer ID). This allows the function to check each correct answer 
+   and compare it with the user's selected answers. -->
+
+ <!-- Code to choose the right answers and display score using loop. 
+    Does not add the tick/cross feature -->
+
+    
